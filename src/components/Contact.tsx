@@ -1,8 +1,51 @@
 
+import { useState, useRef, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+
+        // TODO: Replace with your actual EmailJS credentials
+        // Sign up at https://www.emailjs.com/
+        const serviceId = 'service_wvrfdqa';
+        const templateId = 'template_wvvby1m';
+        const publicKey = '6g92xULxIkp-32uq1';
+
+        emailjs.sendForm(serviceId, templateId, formRef.current!, publicKey)
+            .then(() => {
+                toast.success('Message sent successfully!');
+                setFormData({ name: '', email: '', message: '' });
+            })
+            .catch((error) => {
+                console.error('FAILED...', error);
+                toast.error('Failed to send message. Please try again.');
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
+
     return (
         <section id="contact" className="py-20 bg-secondary/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,12 +113,16 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="bg-primary p-8 rounded-2xl border border-gray-800"
                     >
-                        <form className="space-y-6">
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Name</label>
                                 <input
                                     type="text"
                                     id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full px-4 py-3 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors"
                                     placeholder="Your Name"
                                 />
@@ -85,6 +132,10 @@ const Contact = () => {
                                 <input
                                     type="email"
                                     id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full px-4 py-3 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors"
                                     placeholder="your@email.com"
                                 />
@@ -93,6 +144,10 @@ const Contact = () => {
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Message</label>
                                 <textarea
                                     id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
                                     rows={4}
                                     className="w-full px-4 py-3 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors"
                                     placeholder="Your message..."
@@ -100,9 +155,14 @@ const Contact = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full py-3 bg-accent text-primary font-bold rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2"
+                                disabled={loading}
+                                className="w-full py-3 bg-accent text-primary font-bold rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Send Message <Send size={18} />
+                                {loading ? (
+                                    <>Sending... <Loader2 className="animate-spin" size={18} /></>
+                                ) : (
+                                    <>Send Message <Send size={18} /></>
+                                )}
                             </button>
                         </form>
                     </motion.div>
