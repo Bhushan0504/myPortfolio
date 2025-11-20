@@ -24,7 +24,7 @@ const Projects = () => {
             title: 'Portfolio Website',
             description: 'A modern, responsive portfolio website designed to showcase projects and skills. Built with React and Tailwind CSS.',
             tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-            github: '#',
+            github: 'https://github.com/Bhushan0504/myPortfolio',
             demo: '#',
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80'
         }
