@@ -12,15 +12,6 @@ A modern, responsive developer portfolio built with performance and aesthetics i
 
 ---
 
-## 📸 Screenshots
-
-<!-- Add your screenshots here. Example:
-![Home Page](./assets/home-screenshot.png)
--->
-*(Screenshots coming soon!)*
-
----
-
 ## 🛠️ Tech Stack
 
 -   **Frontend Framework:** [React](https://react.dev/) (v19)
