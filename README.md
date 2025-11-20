@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+# 🚀 My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/github/license/Bhushan0504/myPortfolio?style=for-the-badge&color=blue)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-Currently, two official plugins are available:
+A modern, responsive developer portfolio built with performance and aesthetics in mind. This project showcases my skills, projects, and experience using the latest web technologies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **[Live Demo](https://Bhushan0504.github.io/myPortfolio)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📸 Screenshots
 
-## Expanding the ESLint configuration
+<!-- Add your screenshots here. Example:
+![Home Page](./assets/home-screenshot.png)
+-->
+*(Screenshots coming soon!)*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+-   **Frontend Framework:** [React](https://react.dev/) (v19)
+-   **Language:** [TypeScript](https://www.typescriptlang.org/)
+-   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+-   **Animations:** [Framer Motion](https://www.framer.com/motion/)
+-   **Icons:** [Lucide React](https://lucide.dev/)
+-   **Build Tool:** [Vite](https://vitejs.dev/)
+-   **Deployment:** [GitHub Pages](https://pages.github.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+-   **🎨 Modern UI/UX:** Clean, minimalist design with a focus on readability and user experience.
+-   **📱 Fully Responsive:** Optimized for all devices, from mobile phones to large desktop screens.
+-   **⚡ Fast Performance:** Powered by Vite for lightning-fast development and production builds.
+-   **🎭 Smooth Animations:** Engaging page transitions and scroll animations using Framer Motion.
+-   **📧 Contact Form:** Integrated with EmailJS for direct communication.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally on your machine.
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/) (v18 or higher)
+-   [npm](https://www.npmjs.com/) (usually comes with Node.js)
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/Bhushan0504/myPortfolio.git
+    cd myPortfolio
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open in your browser**
+    Visit `http://localhost:5173` to view the app.
+
+---
+
+## 📦 Deployment
+
+This project is configured to deploy automatically to **GitHub Pages**.
+
+### How it works
+The `gh-pages` branch is used to host the production build of the website.
+
+1.  **Build the project:**
+    ```bash
+    npm run build
+    ```
+    This compiles the code into the `dist` folder.
+
+2.  **Deploy to GitHub Pages:**
+    ```bash
+    npm run deploy
+    ```
+    This command pushes the contents of the `dist` folder to the `gh-pages` branch.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/Bhushan0504">Bhushan0504</a>
+</p>
